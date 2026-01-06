@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Pillu</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            color: #444;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 20px auto;
+            position: relative;
+            z-index: 1;
+        }
+        h1 { color: #d63384; font-size: 2.2rem; }
+        .photo {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            object-fit: cover;
+            margin: 20px 0;
+        }
+        .message-box { font-size: 1.1rem; line-height: 1.7; margin-bottom: 20px; }
+        .marathi-hindi {
+            background: #fff0f5;
+            padding: 15px;
+            border-radius: 15px;
+            font-style: italic;
+            border-left: 5px solid #d63384;
+            margin: 15px 0;
+            text-align: left;
+        }
+        .heart-icon { color: #ff4d4d; font-size: 30px; animation: beat 0.8s infinite alternate; }
+        @keyframes beat { to { transform: scale(1.2); } }
+        
+        /* Falling Hearts Animation */
+        .hearts { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+        .heart { position: absolute; color: rgba(255, 77, 77, 0.5); font-size: 20px; animation: fall 4s linear infinite; }
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hearts" id="heartContainer"></div>
+
+    <div class="container">
+        <div class="heart-icon">❤️</div>
+        <h1>Happy Birthday Pillu! 🎂</h1>
+        
+        <img src="https://via.placeholder.com/220" alt="Special Someone" class="photo">
+
+        <div class="message-box">
+            <p>Wish you a very happiest birthday pillu.. 🎂🍫💗</p>
+            <p>I really hope today brings you a lot of smiles and You deserve all the good things in life. May this year give you happiness, success and everything your heart wants.</p>
+            
+            <p><strong>Always take care of yourself</strong></p>
+            
+            <div class="marathi-hindi">
+                tu nehmi hasat raha mazhi devakad ekach prayer aahe mazh aayushya tula milu de an tuzhya yevd ya jagat sukhi dusar konich nasu de..
+            </div>
+
+            <p>tu eka mula sathi khup mhnje khup jast special aahes tu mazha jiv aahes bala mazhya kaljacha tukada aahes love you so much pillu 🥰🫂 💕</p>
+
+            <div class="marathi-hindi">
+                तू हँसती रहे बस यही दुआ है<br>
+                तेरे चेहरे की मुस्कान ही मेरी दुनिया है<br>
+                ज़िंदगी में चाहे कितनी भी मुश्किलें आए<br>
+                तू कभी खुद को अकेला न समझे, कोई तो है जो सिर्फ तेरी खुशी चाहे
+            </div>
+        </div>
+        <div class="heart-icon">🥰</div>
+    </div>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.getElementById('heartContainer').appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 5000);
+        }
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
