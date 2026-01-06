@@ -3,101 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Pillu</title>
+    <title>Happy Birthday Sharonaa</title>
     <style>
-        body {
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-            color: #444;
-            text-align: center;
-            padding: 20px;
-            margin: 0;
-            overflow-x: hidden;
+            background: #0f0c29; 
+            background: linear-gradient(to bottom, #24243e, #302b63, #0f0c29);
+            color: white; overflow: hidden; display: flex;
+            justify-content: center; align-items: center;
         }
-        .container {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            max-width: 600px;
-            margin: 20px auto;
-            position: relative;
-            z-index: 1;
+
+        .screen {
+            display: none; text-align: center; width: 90%; max-width: 500px;
+            animation: fadeIn 1.2s ease-in-out forwards;
         }
-        h1 { color: #d63384; font-size: 2.2rem; }
-        .photo {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            border: 5px solid #fff;
-            object-fit: cover;
-            margin: 20px 0;
+        .active { display: block; }
+
+        /* Sweet Login Box */
+        .login-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px; border-radius: 20px;
+            backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 0 20px rgba(233, 30, 99, 0.3);
         }
-        .message-box { font-size: 1.1rem; line-height: 1.7; margin-bottom: 20px; }
-        .marathi-hindi {
-            background: #fff0f5;
-            padding: 15px;
-            border-radius: 15px;
-            font-style: italic;
-            border-left: 5px solid #d63384;
-            margin: 15px 0;
-            text-align: left;
-        }
-        .heart-icon { color: #ff4d4d; font-size: 30px; animation: beat 0.8s infinite alternate; }
-        @keyframes beat { to { transform: scale(1.2); } }
         
-        /* Falling Hearts Animation */
-        .hearts { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
-        .heart { position: absolute; color: rgba(255, 77, 77, 0.5); font-size: 20px; animation: fall 4s linear infinite; }
-        @keyframes fall {
-            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        h2 { color: #ffeb3b; font-size: 2.5rem; margin-bottom: 10px; }
+
+        input {
+            padding: 15px; width: 80%; border-radius: 30px; border: none;
+            margin: 20px 0; font-size: 16px; text-align: center; outline: none;
+        }
+
+        button {
+            padding: 15px 40px; border-radius: 30px; border: none;
+            background: #e91e63; color: white; font-size: 18px; font-weight: bold;
+            cursor: pointer; transition: 0.4s; box-shadow: 0 0 15px #e91e63;
+        }
+        button:hover { transform: translateY(-5px); }
+
+        /* Content Styles */
+        .photo-frame {
+            width: 180px; height: 180px; border-radius: 50%;
+            border: 5px solid #e91e63; margin: 0 auto 20px;
+            overflow: hidden; box-shadow: 0 0 30px #e91e63;
+        }
+        .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .cake { font-size: 100px; margin: 20px; cursor: pointer; filter: drop-shadow(0 0 10px gold); }
+        .message-text { font-size: 1.1rem; line-height: 1.6; margin-top: 20px; background: rgba(0,0,0,0.3); padding: 15px; border-radius: 15px; }
+        
+        .marathi-font { font-style: italic; color: #ffeb3b; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+
+        /* Floating Particles */
+        .heart { position: absolute; pointer-events: none; animation: fly 4s linear infinite; }
+        @keyframes fly { 
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; } 
+            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; } 
         }
     </style>
 </head>
 <body>
 
-    <div class="hearts" id="heartContainer"></div>
-
-    <div class="container">
-        <div class="heart-icon">❤️</div>
-        <h1>Happy Birthday Pillu! 🎂</h1>
-        
-        <img src="https://via.placeholder.com/220" alt="pillu1.jpg" class="photo">
-
-        <div class="message-box">
-            <p>Wish you a very happiest birthday pillu.. 🎂🍫💗</p>
-            <p>I really hope today brings you a lot of smiles and You deserve all the good things in life. May this year give you happiness, success and everything your heart wants.</p>
-            
-            <p><strong>Always take care of yourself</strong></p>
-            
-            <div class="marathi-hindi">
-                tu nehmi hasat raha mazhi devakad ekach prayer aahe mazh aayushya tula milu de an tuzhya yevd ya jagat sukhi dusar konich nasu de..
-            </div>
-
-            <p>tu eka mula sathi khup mhnje khup jast special aahes tu mazha jiv aahes bala mazhya kaljacha tukada aahes love you so much pillu 🥰🫂 💕</p>
-
-            <div class="marathi-hindi">
-                तू हँसती रहे बस यही दुआ है<br>
-                तेरे चेहरे की मुस्कान ही मेरी दुनिया है<br>
-                ज़िंदगी में चाहे कितनी भी मुश्किलें आए<br>
-                तू कभी खुद को अकेला न समझे, कोई तो है जो सिर्फ तेरी खुशी चाहे
-            </div>
+    <div id="screen1" class="screen active">
+        <div class="login-box">
+            <h2>Sweet Login 🍬</h2>
+            <p>Enter your secret nickname to enter...</p>
+            <input type="text" id="passcode" placeholder="Tumcha nickname taka...">
+            <br>
+            <button onclick="checkPass()">Let's Go! ✨</button>
         </div>
-        <div class="heart-icon">🥰</div>
+    </div>
+
+    <div id="screen2" class="screen">
+        <h1 style="font-size: 3rem; color: #ffeb3b;">Happy Birthday Sharonaa! 🎈</h1>
+        <p style="font-size: 1.5rem;">There's a surprise waiting for you! 🎁</p>
+        <button onclick="nextScreen(3)">Click to see Surprise! 💖</button>
+    </div>
+
+    <div id="screen3" class="screen">
+        <div class="photo-frame">
+            <img src="pillu1.jpg" alt="Pillu">
+        </div>
+        <h2 style="font-size: 2rem;">Magical Cake Time! 🎂</h2>
+        <div class="cake" onclick="celebrate()">🎂</div>
+        <p id="instruction">Tap the Cake to Blow Candles!</p>
+        
+        <div id="finalMessage" style="display:none;" class="message-text">
+            <p><strong>Wish you a very happiest birthday pillu.. 🎂🍫💗</strong></p>
+            <p>I really hope today brings you a lot of smiles and You deserve all the good things in life. May this year give you happiness, success and everything your heart wants.</p>
+            <p class="marathi-font">Always take care of yourself. Tu nehmi hasat raha mazhi devakad ekach prayer aahe mazh aayushya tula milu de an tuzhya yevd ya jagat sukhi dusar konich nasu de..</p>
+            <p>Tu eka mula sathi khup special aahes, tu mazha jiv aahes bala mazhya kaljacha tukada aahes. Love you so much pillu! 🥰🫂</p>
+            <p style="color: #ffeb3b; font-weight: bold;">तू हँसती रहे बस यही दुआ है तेरे चेहरे की मुस्कान ही मेरी दुनिया है... 💕</p>
+        </div>
     </div>
 
     <script>
+        function checkPass() {
+            const code = document.getElementById('passcode').value.toLowerCase().trim();
+            // Ab ye tabhi aage badhega jab 'maz baal' likha jayega
+            if (code === "maz baal") {
+                nextScreen(2);
+            } else {
+                alert("Wrong Nickname! Please enter 'maz baal' ❤️");
+            }
+        }
+
+        function nextScreen(n) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById('screen' + n).classList.add('active');
+        }
+
+        function celebrate() {
+            document.getElementById('instruction').style.display = 'none';
+            document.getElementById('finalMessage').style.display = 'block';
+            setInterval(createHeart, 250);
+            alert("Happy Birthday Sharonaa! 🎆✨");
+        }
+
         function createHeart() {
             const heart = document.createElement('div');
             heart.classList.add('heart');
-            heart.innerHTML = '❤️';
+            heart.innerHTML = ['❤️', '💖', '✨', '🌸', '🎂', '💝'][Math.floor(Math.random() * 6)];
             heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
-            document.getElementById('heartContainer').appendChild(heart);
-            setTimeout(() => { heart.remove(); }, 5000);
+            heart.style.top = '100vh';
+            heart.style.fontSize = Math.random() * 20 + 20 + 'px';
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 4000);
         }
-        setInterval(createHeart, 300);
     </script>
 </body>
 </html>
