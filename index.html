@@ -2,83 +2,89 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Special Surprise</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; }
         body, html {
-            margin: 0; padding: 0; width: 100%; height: 100%;
+            margin: 0; padding: 0; width: 100%; min-height: 100%;
             font-family: 'Poppins', sans-serif;
             background: #0f0c29; 
             background: linear-gradient(to bottom, #24243e, #302b63, #0f0c29);
-            color: white; overflow: hidden;
+            color: white; overflow-x: hidden;
         }
 
         .container {
-            position: relative; width: 100%; height: 100vh;
+            width: 100%; min-height: 100vh;
             display: flex; justify-content: center; align-items: center;
+            padding: 20px;
         }
 
         .screen {
-            display: none; text-align: center; width: 90%; max-width: 500px;
-            z-index: 10;
+            display: none; text-align: center; width: 100%; max-width: 550px;
+            margin: auto;
         }
-        .active { display: block; animation: fadeIn 0.8s ease-in-out; }
+        .active { display: block; animation: fadeIn 1s ease-in-out; }
 
         /* Login Box */
         .login-box {
             background: rgba(255, 255, 255, 0.05);
-            padding: 30px; border-radius: 25px;
+            padding: 40px 20px; border-radius: 30px;
             backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.1);
         }
         
-        h2 { font-family: 'Dancing Script', cursive; color: #ffeb3b; font-size: 2.5rem; margin: 0; }
+        h2 { font-family: 'Dancing Script', cursive; color: #ffeb3b; font-size: 3rem; margin: 0; }
 
         input {
-            padding: 12px; width: 80%; border-radius: 25px; border: 2px solid #e91e63;
-            margin: 20px 0; font-size: 16px; text-align: center; background: rgba(0,0,0,0.3); color: white;
+            padding: 15px; width: 80%; border-radius: 30px; border: 2px solid #e91e63;
+            margin: 20px 0; font-size: 16px; text-align: center; background: rgba(0,0,0,0.2); color: white;
         }
 
         .btn {
-            padding: 12px 35px; border-radius: 25px; border: none;
+            padding: 15px 40px; border-radius: 30px; border: none;
             background: linear-gradient(45deg, #f06, #ff9); color: #000;
-            font-size: 16px; font-weight: bold; cursor: pointer;
+            font-size: 18px; font-weight: bold; cursor: pointer;
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4);
         }
 
-        /* Final Page Layout - Zero Movement */
-        #screen3 { height: 90vh; overflow-y: auto; padding-top: 20px; }
-        
-        /* Different Stylish Font for Sharonaa */
+        /* Final Reveal - Fixed Font & Stability */
         .reveal-title {
             font-family: 'Pacifico', cursive;
-            font-size: 2.2rem; color: #ffeb3b;
-            text-shadow: 0 0 15px #f06; margin-bottom: 10px;
+            font-size: 2.8rem; color: #ffeb3b;
+            text-shadow: 0 0 20px #f06; margin: 10px 0 20px;
+            line-height: 1.2;
         }
 
         .photo-frame {
-            width: 140px; height: 140px; border-radius: 50%;
-            border: 4px solid #e91e63; margin: 0 auto 15px;
-            overflow: hidden; box-shadow: 0 0 20px #e91e63;
+            width: 180px; height: 180px; border-radius: 50%;
+            border: 6px solid #e91e63; margin: 0 auto 20px;
+            overflow: hidden; box-shadow: 0 0 30px #e91e63;
         }
         .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
         
-        .cake { font-size: 80px; margin: 10px auto; cursor: pointer; display: block; }
+        .cake { font-size: 100px; margin: 20px auto; cursor: pointer; display: block; transition: 0.3s; }
 
+        /* Message Card - No more cutting */
         .message-card { 
-            background: rgba(255, 255, 255, 0.1); padding: 20px; 
-            border-radius: 20px; margin-top: 15px; text-align: center;
-            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1); padding: 25px; 
+            border-radius: 25px; border: 1px solid rgba(255,255,255,0.1);
+            margin-top: 20px; text-align: center; width: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
         
-        .message-card p { font-size: 0.95rem; line-height: 1.5; margin: 8px 0; }
-        .highlight { color: #ffeb3b; font-family: 'Dancing Script', cursive; font-size: 1.3rem; font-weight: bold; }
-        .marathi { color: #ff9a9e; font-style: italic; border-top: 1px dotted rgba(255,255,255,0.2); padding-top: 10px; }
+        .message-card p { font-size: 1.1rem; line-height: 1.7; margin: 15px 0; }
+        .highlight { color: #ffeb3b; font-family: 'Dancing Script', cursive; font-size: 1.6rem; font-weight: bold; }
+        .marathi { font-style: italic; color: #ff9a9e; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
 
-        /* Floating Hearts Background */
-        .heart { position: fixed; pointer-events: none; animation: fly 4s linear infinite; z-index: 1; bottom: -50px; }
-        @keyframes fly { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(-110vh); opacity: 0; } }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Background Hearts */
+        .heart { position: fixed; pointer-events: none; animation: fly 5s linear infinite; z-index: -1; bottom: -50px; }
+        @keyframes fly { 
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; } 
+            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; } 
+        }
     </style>
 </head>
 <body>
@@ -89,12 +95,12 @@
                 <h2>Sweet Login 🍬</h2>
                 <input type="text" id="passcode" placeholder="Type 'maz baal' here...">
                 <br>
-                <button class="btn" onclick="checkPass()">Unlock ✨</button>
+                <button class="btn" onclick="checkPass()">Unlock Surprise ✨</button>
             </div>
         </div>
 
         <div id="screen2" class="screen">
-            <h1 style="font-size: 1.8rem;">There's a surprise waiting for you! 🎁</h1>
+            <h1 style="font-size: 2.5rem; margin-bottom: 30px;">There's a surprise waiting for you! 🎁</h1>
             <button class="btn" onclick="nextScreen(3)">Show Me! 💖</button>
         </div>
 
@@ -106,12 +112,14 @@
             </div>
 
             <div class="cake" id="cakeBtn" onclick="celebrate()">🎂</div>
-            <p id="instruction" style="color: #ffeb3b; font-size: 0.9rem;">Tap the Cake! 🕯️</p>
+            <p id="instruction" style="color: #ffeb3b; font-weight: 600;">Tap the Cake to Blow Candles! 🕯️</p>
             
             <div id="finalMessage" style="display:none;" class="message-card">
                 <p class="highlight">Wish you a very happiest birthday pillu.. 🎂🍫💗</p>
                 <p>I really hope today brings you a lot of smiles and You deserve all the good things in life. May this year give you happiness, success and everything your heart wants.</p>
+                
                 <p class="marathi">Always take care of yourself. Tu nehmi hasat raha mazhi devakad ekach prayer aahe mazh aayushya tula milu de an tuzhya yevd ya jagat sukhi dusar konich nasu de..</p>
+                
                 <p>Tu eka mula sathi khup mhnje khup jast special aahes, tu mazha jiv aahes bala mazhya kaljacha tukada aahes.</p>
                 <p class="highlight">Love you so much pillu! 🥰🫂 💕</p>
             </div>
@@ -120,7 +128,8 @@
 
     <script>
         function checkPass() {
-            if (document.getElementById('passcode').value.toLowerCase().trim() === "maz baal") {
+            const code = document.getElementById('passcode').value.toLowerCase().trim();
+            if (code === "maz baal") {
                 nextScreen(2);
             } else { alert("Wrong Nickname! ❤️"); }
         }
@@ -128,23 +137,29 @@
         function nextScreen(n) {
             document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
             document.getElementById('screen' + n).classList.add('active');
+            window.scrollTo(0,0);
         }
 
         function celebrate() {
             document.getElementById('instruction').style.display = 'none';
             document.getElementById('cakeBtn').innerHTML = '🍰';
             document.getElementById('finalMessage').style.display = 'block';
-            setInterval(createHeart, 250);
+            setInterval(createHeart, 200);
+            
+            // Scroll to message smoothly
+            setTimeout(() => {
+                document.getElementById('finalMessage').scrollIntoView({ behavior: 'smooth' });
+            }, 100);
         }
 
         function createHeart() {
             const heart = document.createElement('div');
             heart.classList.add('heart');
-            heart.innerHTML = ['❤️', '💖', '✨', '🎂'][Math.floor(Math.random() * 4)];
+            heart.innerHTML = ['❤️', '💖', '✨', '🎂', '🎈'][Math.floor(Math.random() * 5)];
             heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+            heart.style.fontSize = Math.random() * 20 + 20 + 'px';
             document.body.appendChild(heart);
-            setTimeout(() => heart.remove(), 4000);
+            setTimeout(() => heart.remove(), 5000);
         }
     </script>
 </body>
